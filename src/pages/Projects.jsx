@@ -1,23 +1,56 @@
-import project1 from "../assets/images/project1.jpg";
-import project2 from "../assets/images/project2.jpg";
-import project3 from "../assets/images/project3.jpg";
+import BeforeAfterSlider from "../components/BeforeAfterSlider";
+import project1Before from "../assets/images/before1.jpg";
+import project1After from "../assets/images/after1.jpg";
+import project2Before from "../assets/images/before2.jpg";
+import project2After from "../assets/images/after2.jpg";
+import project3Before from "../assets/images/before3.jpg";
+import project3After from "../assets/images/after3.jpg";
+import project4Before from "../assets/images/before4.jpg";
+import project4After from "../assets/images/after4.jpg";
+import compare1 from "../assets/images/compare1.jpg";
+import compare2 from "../assets/images/compare2.jpg";
+import compare3 from "../assets/images/compare3.jpg";
 
 export default function Projects() {
   const projects = [
     {
       title: "Downtown Office Complex",
       category: "Commercial",
-      image: project1,
+      before: project1Before,
+      after: project1After,
     },
     {
       title: "Luxury Residential Tower",
       category: "Residential",
-      image: project2,
+      before: project2Before,
+      after: project2After,
     },
     {
       title: "Industrial Logistics Hub",
       category: "Industrial",
-      image: project3,
+      before: project3Before,
+      after: project3After,
+    },
+    {
+      title: "Industrial Logistics Hub",
+      category: "Industrial",
+      before: project4Before,
+      after: project4After,
+    },
+    {
+      title: "Industrial Logistics Hub",
+      category: "Industrial",
+      image: compare1, // no slider
+    },
+    {
+      title: "Industrial Logistics Hub",
+      category: "Industrial",
+      image: compare2, // no slider
+    },
+    {
+      title: "Industrial Logistics Hub",
+      category: "Industrial",
+      image: compare3, // no slider
     },
   ];
 
@@ -37,8 +70,13 @@ export default function Projects() {
         <div className="project-grid">
           {projects.map((p, i) => (
             <div className="project-card" key={i}>
-              <img src={p.image} alt={p.title} />
-              <div className="project-overlay">
+              {p.before && p.after ? (
+                <BeforeAfterSlider before={p.before} after={p.after} />
+              ) : (
+                <img src={p.image} alt={p.title} />
+              )}
+
+              <div className="project-overlay always-visible">
                 <div>
                   <h3>{p.title}</h3>
                   <span>{p.category}</span>
