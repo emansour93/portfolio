@@ -9,20 +9,21 @@ import project3After from "../assets/images/after3.jpg";
 export default function Projects() {
   const projects = [
     {
-      title: "Downtown Office Complex",
-      category: "Commercial",
+      title: "Exterior restoration and water proofing",
+      category:
+        "Protecting and restoring building exteriors through repairs, coating and moisture control solutions",
       before: project1Before,
       after: project1After,
     },
     {
-      title: "Luxury Residential Tower",
-      category: "Residential",
+      category: "driveway, patios, walkways, slabs, and paver installation",
+      title: "Concrete and paver services",
       before: project2Before,
       after: project2After,
     },
     {
-      title: "Industrial Logistics Hub",
-      category: "Industrial",
+      category: "New builds, remodels, repairs and upgrades",
+      title: "Residential construction and renovation",
       before: project3Before,
       after: project3After,
     },

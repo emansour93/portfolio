@@ -174,7 +174,7 @@ footer .footer-socials {
 
 .project-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
   gap: 0px;
 }
 
@@ -324,5 +324,32 @@ footer .footer-socials {
 
   .navbar .nav-link::after {
     bottom: 4px;
+  }
+}
+/* ===============================
+   FOOTER PARALLAX BACKGROUND
+   =============================== */
+
+.footer-parallax {
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  /* Parallax magic */
+  background-attachment: fixed;
+}
+
+/* Dark overlay for readability */
+.footer-overlay {
+  background: rgba(0, 0, 0, 0.75);
+  padding-top: 60px;
+  padding-bottom: 30px;
+}
+
+/* Disable parallax on mobile (important) */
+@media (max-width: 768px) {
+  .footer-parallax {
+    background-attachment: scroll;
   }
 }

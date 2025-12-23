@@ -7,11 +7,15 @@ import {
   FaWhatsapp,
 } from "react-icons/fa";
 
-import logo from "../assets/logos/logo-white-footer.png";
+import logo from "../assets/logos/logo.png";
+import paralex from "../assets/images/bnn-footer.jpg";
 
 export default function Footer() {
   return (
-    <footer className="footer text-light pt-5 pb-3">
+    <footer
+      className="footer footer-parallax text-light pt-5 pb-3"
+      style={{ backgroundImage: `url(${paralex})` }}
+    >
       <Container>
         <Row className="gy-4 align-items-start">
           {/* Logo + About */}

@@ -14,26 +14,28 @@ import compare3 from "../assets/images/compare3.jpg";
 export default function Projects() {
   const projects = [
     {
-      title: "Downtown Office Complex",
-      category: "Commercial",
+      title: "Exterior restoration and water proofing",
+      category:
+        "Protecting and restoring building exteriors through repairs, coating and moisture control solutions",
       before: project1Before,
       after: project1After,
     },
     {
       title: "Luxury Residential Tower",
-      category: "Residential",
+      category: "Concrete and paver services",
       before: project2Before,
       after: project2After,
     },
     {
-      title: "Industrial Logistics Hub",
-      category: "Industrial",
+      title: "New builds, remodels, repairs and upgrades",
+      category: "Residential construction and renovation",
       before: project3Before,
       after: project3After,
     },
     {
-      title: "Industrial Logistics Hub",
-      category: "Industrial",
+      title: "Kitchen Restoration & Wood Finishing",
+      category:
+        "Cabinet refinishing, surface restoration, and wood varnish application",
       before: project4Before,
       after: project4After,
     },

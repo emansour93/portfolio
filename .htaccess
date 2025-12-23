@@ -1,0 +1,55 @@
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  # ----------------------------------------------------
+  # FORCE HTTPS (VERY IMPORTANT)
+  # ----------------------------------------------------
+  RewriteCond %{HTTPS} off
+  RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+  # ----------------------------------------------------
+  # FORCE NON-WWW (optional – keeps SEO clean)
+  # ----------------------------------------------------
+  RewriteCond %{HTTP_HOST} ^www\.rgmdevelopmentgrp\.com$ [NC]
+  RewriteRule ^ https://rgmdevelopmentgrp.com%{REQUEST_URI} [L,R=301]
+
+  RewriteBase /
+
+  # ----------------------------------------------------
+  # DO NOT REWRITE REAL FILES OR DIRECTORIES
+  # ----------------------------------------------------
+  RewriteCond %{REQUEST_FILENAME} -f [OR]
+  RewriteCond %{REQUEST_FILENAME} -d
+  RewriteRule ^ - [L]
+
+  # ----------------------------------------------------
+  # REACT SPA ROUTING
+  # ----------------------------------------------------
+  RewriteRule ^ index.html [L]
+</IfModule>
+
+# ----------------------------------------------------
+# PREVENT CACHING OF index.html (fixes old site showing)
+# ----------------------------------------------------
+<FilesMatch "index.html">
+  Header set Cache-Control "no-cache, no-store, must-revalidate"
+  Header set Pragma "no-cache"
+  Header set Expires 0
+</FilesMatch>
+
+# ----------------------------------------------------
+# ENABLE GZIP COMPRESSION (performance boost)
+# ----------------------------------------------------
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/plain text/css application/javascript application/json image/svg+xml
+</IfModule>
+
+# ----------------------------------------------------
+# SECURITY HEADERS (recommended)
+# ----------------------------------------------------
+<IfModule mod_headers.c>
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set X-Frame-Options "SAMEORIGIN"
+  Header always set X-XSS-Protection "1; mode=block"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+</IfModule>

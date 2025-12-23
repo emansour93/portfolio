@@ -1,7 +1,8 @@
 import "./Services.css";
 import commercial from "../assets/services/commercial.jpg";
 import residential from "../assets/services/residential.jpg";
-import industrial from "../assets/services/industrial.jpg";
+import exteriorRestoration from "../assets/services/Apartments-faded-exterior-paint.webp";
+
 export default function Services() {
   const markets = [
     {
@@ -13,6 +14,11 @@ export default function Services() {
       title: "Residential",
       desc: "High-end homes and multi-family projects",
       image: residential,
+    },
+    {
+      title: "Exterior Restoration & Waterproofing",
+      desc: "Restoring building exteriors and preventing water intrusion through reliable, long-lasting solutions",
+      image: exteriorRestoration,
     },
   ];
   return (
