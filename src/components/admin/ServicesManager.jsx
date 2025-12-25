@@ -17,7 +17,6 @@ export default function ServicesManager() {
   const loadServices = async () => {
     try {
       const res = await api.get("/services/admin");
-      console.log(res.data); // check what backend returns
       setServices(Array.isArray(res.data) ? res.data : []);
     } catch (err) {
       console.error("Failed to load services:", err);

@@ -19,8 +19,14 @@ export default function HeroManager() {
   const [editingId, setEditingId] = useState(null);
 
   const loadSlides = async () => {
-    const res = await api.get("/hero-slides/admin");
-    setSlides(res.data);
+    try {
+      const res = await api.get("/hero-slides/admin");
+      // make sure we always get an array
+      setSlides(Array.isArray(res.data) ? res.data : res.data.slides || []);
+    } catch (err) {
+      console.error("Failed to load slides:", err);
+      setSlides([]);
+    }
   };
 
   useEffect(() => {
