@@ -1,60 +1,17 @@
+import { useEffect, useState } from "react";
+import api from "../api";
 import BeforeAfterSlider from "../components/BeforeAfterSlider";
-import project1Before from "../assets/images/before1.jpg";
-import project1After from "../assets/images/after1.jpg";
-import project2Before from "../assets/images/before2.jpg";
-import project2After from "../assets/images/after2.jpg";
-import project3Before from "../assets/images/before3.jpg";
-import project3After from "../assets/images/after3.jpg";
-import project4Before from "../assets/images/before4.jpg";
-import project4After from "../assets/images/after4.jpg";
-import compare1 from "../assets/images/compare1.jpg";
-import compare2 from "../assets/images/compare2.jpg";
-import compare3 from "../assets/images/compare3.jpg";
 
 export default function Projects() {
-  const projects = [
-    {
-      title: "Exterior restoration and water proofing",
-      category:
-        "Protecting and restoring building exteriors through repairs, coating and moisture control solutions",
-      before: project1Before,
-      after: project1After,
-    },
-    {
-      title: "Luxury Residential Tower",
-      category: "Concrete and paver services",
-      before: project2Before,
-      after: project2After,
-    },
-    {
-      title: "New builds, remodels, repairs and upgrades",
-      category: "Residential construction and renovation",
-      before: project3Before,
-      after: project3After,
-    },
-    {
-      title: "Kitchen Restoration & Wood Finishing",
-      category:
-        "Cabinet refinishing, surface restoration, and wood varnish application",
-      before: project4Before,
-      after: project4After,
-    },
-    {
-      title: "Industrial Logistics Hub",
-      category: "Industrial",
-      image: compare1, // no slider
-    },
-    {
-      title: "Industrial Logistics Hub",
-      category: "Industrial",
-      image: compare2, // no slider
-    },
-    {
-      title: "Industrial Logistics Hub",
-      category: "Industrial",
-      image: compare3, // no slider
-    },
-  ];
+  const [projects, setProjects] = useState([]);
+  const API_BASE = import.meta.env.VITE_API_BASE_URL;
+
+  useEffect(() => {
+    api
+      .get("/projects") // get all projects
+      .then((res) => setProjects(res.data))
+      .catch((err) => console.error("Failed to load projects:", err));
+  }, []);
 
   return (
     <main className="main-top-margin">
@@ -67,25 +24,37 @@ export default function Projects() {
               craftsmanship, and performance.
             </p>
           </div>
-        </div>
 
-        <div className="project-grid">
-          {projects.map((p, i) => (
-            <div className="project-card" key={i}>
-              {p.before && p.after ? (
-                <BeforeAfterSlider before={p.before} after={p.after} />
-              ) : (
-                <img src={p.image} alt={p.title} />
-              )}
+          <div className="project-grid">
+            {projects.map((p) => (
+              <div className="project-card" key={p.id}>
+                {p.before_image && p.after_image ? (
+                  <BeforeAfterSlider
+                    before={`${API_BASE}/uploads/${p.before_image}`}
+                    after={`${API_BASE}/uploads/${p.after_image}`}
+                  />
+                ) : (
+                  <img
+                    src={
+                      p.before_image
+                        ? `${API_BASE}/uploads/${p.before_image}`
+                        : p.after_image
+                        ? `${API_BASE}/uploads/${p.after_image}`
+                        : ""
+                    }
+                    alt={p.title}
+                  />
+                )}
 
-              <div className="project-overlay always-visible">
-                <div>
-                  <h3>{p.title}</h3>
-                  <span>{p.category}</span>
+                <div className="project-overlay always-visible">
+                  <div>
+                    <h3>{p.title}</h3>
+                    <span>{p.category}</span>
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </section>
     </main>

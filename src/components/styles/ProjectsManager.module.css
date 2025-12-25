@@ -1,0 +1,156 @@
+/* ServicesManager.module.css */
+
+.cms-container {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: #0f172a;
+  padding: 30px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+  color: #ffffff;
+  min-height: 100vh;
+}
+
+.cms-container h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.cms-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.cms-table th,
+.cms-table td {
+  border: 1px solid #1f2937;
+  padding: 12px;
+  text-align: center;
+}
+
+.cms-table th {
+  background-color: #3b82f6;
+  color: #fff;
+}
+
+.cms-table tr:nth-child(even) {
+  background-color: #1e293b;
+}
+
+.cms-table tr:hover {
+  background-color: #111827;
+}
+
+.cms-table img {
+  border-radius: 5px;
+  width: 80px;
+  height: auto;
+}
+
+.cms-button {
+  padding: 6px 12px;
+  margin: 2px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.add-btn {
+  background-color: #10b981;
+  color: white;
+  margin-bottom: 15px;
+}
+
+.add-btn:hover {
+  background-color: #059669;
+}
+
+.edit-btn {
+  background-color: #facc15;
+  color: white;
+}
+
+.edit-btn:hover {
+  background-color: #eab308;
+}
+
+.delete-btn {
+  background-color: #ef4444;
+  color: white;
+}
+
+.delete-btn:hover {
+  background-color: #dc2626;
+}
+
+/* Modal styling same as HeroManager */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal {
+  background: #1f2937;
+  padding: 25px;
+  border-radius: 10px;
+  width: 400px;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+  position: relative;
+  color: white;
+}
+
+.modal h3 {
+  margin-top: 0;
+  text-align: center;
+}
+
+.modal form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.modal input[type="text"],
+.modal input[type="number"],
+.modal input[type="file"] {
+  padding: 8px 10px;
+  border-radius: 5px;
+  border: 1px solid #3b82f6;
+  background-color: #0f172a;
+  color: white;
+}
+
+.modal button {
+  background-color: #10b981;
+  color: white;
+  border: none;
+  padding: 8px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.modal button:hover {
+  background-color: #059669;
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  border: none;
+  background: none;
+  font-size: 20px;
+  cursor: pointer;
+  color: white;
+}

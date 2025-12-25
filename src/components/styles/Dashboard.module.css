@@ -1,0 +1,13 @@
+.cms-container {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: #0f172a;
+  padding: 30px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+  color: #ffffff;
+  min-height: 100vh;
+}
+
+.cms-container h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}

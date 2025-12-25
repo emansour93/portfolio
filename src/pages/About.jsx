@@ -6,10 +6,11 @@ export default function About() {
         <div className="container">
           <h1>About Us</h1>
           <p>
-            RGM Development is a professional software development company
-            delivering high-quality solutions. Our team specializes in web,
-            mobile, and backend development with a focus on reliability and
-            innovation.
+            After six years of combined experience in site work and exterior
+            restoration—working throughout the Panhandle area—I took the step to
+            launch my own company, built on the quality, craftsmanship, and
+            real-world experience gained on the job. Message us today for
+            reliable, high-quality work you can trust.
           </p>
         </div>
       </section>

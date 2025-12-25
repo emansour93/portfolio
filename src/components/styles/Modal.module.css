@@ -1,0 +1,80 @@
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6); /* slightly darker overlay */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal {
+  background: #0f172a; /* match login/card background */
+  padding: 30px;
+  border-radius: 12px;
+  width: 400px;
+  max-width: 90%;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+  color: #fff; /* text color */
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.modal h3 {
+  margin: 0;
+  text-align: center;
+  font-size: 22px;
+}
+
+.modal form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.modal input[type="text"],
+.modal input[type="number"],
+.modal input[type="file"] {
+  padding: 10px;
+  border-radius: 6px;
+  border: none;
+  background: #020617;
+  color: #fff;
+}
+
+.modal input:focus {
+  outline: 2px solid #3b82f6;
+}
+
+.modal button {
+  background-color: #3b82f6;
+  color: white;
+  border: none;
+  padding: 0px 10px 2px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.modal button:hover {
+  background-color: #2563eb;
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  border: none;
+  background: none;
+  font-size: 24px;
+  font-weight: bold;
+  color: #fff;
+  cursor: pointer;
+}
