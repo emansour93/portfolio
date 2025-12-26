@@ -14,13 +14,19 @@ export default function HeroSlider() {
     api.get("/hero-slides/admin").then((res) => setSlides(res.data));
   }, []);
 
+  const enableLoop = slides.length > 1;
   return (
     <Swiper
       modules={[Navigation, Pagination, Autoplay]}
       navigation
       pagination={{ clickable: true }}
-      autoplay={{ delay: 5000 }}
-      loop
+      autoplay={{ delay: 5000, disableOnInteraction: false }}
+      loop={enableLoop}
+      breakpoints={{
+        0: { slidesPerView: 1 },
+        768: { slidesPerView: 1 },
+        1024: { slidesPerView: 1 },
+      }}
     >
       {slides.map((slide) => (
         <SwiperSlide key={slide.id}>
