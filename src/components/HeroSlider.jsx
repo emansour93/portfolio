@@ -11,7 +11,7 @@ export default function HeroSlider() {
   const API_BASE = import.meta.env.VITE_API_BASE_URL;
 
   useEffect(() => {
-    api.get("/hero-slides/admin").then((res) => setSlides(res.data));
+    api.get("/hero-slides").then((res) => setSlides(res.data));
   }, []);
 
   const enableLoop = slides.length > 1;
