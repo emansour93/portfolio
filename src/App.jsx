@@ -14,6 +14,7 @@ import AdminLayout from "./components/admin/AdminLayout";
 import HeroManager from "./components/admin/HeroManager";
 import ServicesManager from "./components/admin/ServicesManager";
 import ProjectsManager from "./components/admin/ProjectsManager";
+import PagesManager from "./components/admin/PagesManager";
 
 export default function App() {
   return (
@@ -44,7 +45,6 @@ export default function App() {
             element={
               <ProtectedRoute>
                 <HeroManager />
-                <ServicesManager />
               </ProtectedRoute>
             }
           />
@@ -61,6 +61,14 @@ export default function App() {
             element={
               <ProtectedRoute>
                 <ProjectsManager />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/admin/pages"
+            element={
+              <ProtectedRoute>
+                <PagesManager />
               </ProtectedRoute>
             }
           />

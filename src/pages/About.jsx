@@ -1,17 +1,22 @@
-// About.jsx
+import { useEffect, useState } from "react";
+import { getPage } from "../api.js";
+
 export default function About() {
+  const [page, setPage] = useState(null);
+
+  useEffect(() => {
+    getPage("about").then((res) => setPage(res.data));
+  }, []);
+
+  if (!page)
+    return <div className="container py-5 text-center">Loading...</div>;
+
   return (
     <main className="main-top-margin">
       <section className="about py-5">
         <div className="container">
-          <h1>About Us</h1>
-          <p>
-            After six years of combined experience in site work and exterior
-            restoration—working throughout the Panhandle area—I took the step to
-            launch my own company, built on the quality, craftsmanship, and
-            real-world experience gained on the job. Message us today for
-            reliable, high-quality work you can trust.
-          </p>
+          <h1>{page.title}</h1>
+          <p style={{ whiteSpace: "pre-line" }}>{page.content}</p>
         </div>
       </section>
     </main>

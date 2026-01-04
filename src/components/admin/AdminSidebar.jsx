@@ -44,6 +44,13 @@ export default function AdminSidebar({ isOpen, setIsOpen }) {
         >
           Projects
         </NavLink>
+        <NavLink
+          to="/admin/pages"
+          style={styles.link}
+          onClick={() => setIsOpen(false)}
+        >
+          Pages
+        </NavLink>
 
         <button
           onClick={() => {
