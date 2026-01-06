@@ -16,19 +16,70 @@ import ServicesManager from "./components/admin/ServicesManager";
 import ProjectsManager from "./components/admin/ProjectsManager";
 import PagesManager from "./components/admin/PagesManager";
 import Privacy from "./pages/Privacy";
+import DynamicSEO from "./components/DynamicSEO";
+import PageSEOEditor from "./components/admin/PageSEOEditor";
 
 export default function App() {
   return (
     <Router>
       <Routes>
         <Route element={<MainLayout />}>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/services" element={<ServicesPage />} />
-          <Route path="/projects" element={<Projects />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/privacy" element={<Privacy />} />
+          <Route
+            path="/"
+            element={
+              <>
+                <DynamicSEO slug="home" />
+                <Home />
+              </>
+            }
+          />
+          <Route
+            path="/about"
+            element={
+              <>
+                <DynamicSEO slug="about" />
+                <About />
+              </>
+            }
+          />
+          <Route
+            path="/services"
+            element={
+              <>
+                <DynamicSEO slug="services" />
+                <ServicesPage />
+              </>
+            }
+          />
+          <Route
+            path="/projects"
+            element={
+              <>
+                <DynamicSEO slug="projects" />
+                <Projects />
+              </>
+            }
+          />
+          <Route
+            path="/contact"
+            element={
+              <>
+                <DynamicSEO slug="contact" />
+                <Contact />
+              </>
+            }
+          />
+          <Route
+            path="/privacy"
+            element={
+              <>
+                <DynamicSEO slug="privacy" />
+                <Privacy />
+              </>
+            }
+          />
         </Route>
+
         <Route element={<AdminLayout />}>
           {/* Auth */}
           <Route path="/login" element={<Login />} />
@@ -71,6 +122,14 @@ export default function App() {
             element={
               <ProtectedRoute>
                 <PagesManager />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/admin/seo"
+            element={
+              <ProtectedRoute>
+                <PageSEOEditor />
               </ProtectedRoute>
             }
           />

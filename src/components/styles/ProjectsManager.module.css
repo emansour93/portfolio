@@ -154,3 +154,10 @@
   cursor: pointer;
   color: white;
 }
+.cms-input {
+  width: 100%;
+  padding: 6px;
+  margin: 6px 0;
+  border-radius: 5px;
+  border: 0px;
+}

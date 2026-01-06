@@ -51,6 +51,13 @@ export default function AdminSidebar({ isOpen, setIsOpen }) {
         >
           Pages
         </NavLink>
+        <NavLink
+          to="/admin/seo"
+          style={styles.link}
+          onClick={() => setIsOpen(false)}
+        >
+          SEO
+        </NavLink>
 
         <button
           onClick={() => {

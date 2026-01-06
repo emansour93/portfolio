@@ -14,5 +14,10 @@ api.interceptors.request.use((config) => {
 
 export const getPage = (slug) => api.get(`/pages/${slug}`);
 export const updatePage = (slug, data) => api.put(`/pages/${slug}`, data);
+// SEO CMS
+export const getSEO = (slug) => api.get(`/seo/${slug}`);
+export const getAllSEO = () => api.get(`/seo`);
+export const updateSEO = (slug, data) => api.put(`/seo/${slug}`, data);
+export const deleteSEO = (slug) => api.delete(`/seo/${slug}`);
 
 export default api;
