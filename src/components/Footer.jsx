@@ -52,8 +52,8 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link to="/contact" className="footer-link">
-                  Contact
+                <Link to="/privacy" className="footer-link">
+                  Privacy Policy
                 </Link>
               </li>
             </ul>
@@ -94,7 +94,7 @@ export default function Footer() {
 
         <hr className="border-secondary my-4" />
 
-        <div className="text-center text-muted small">
+        <div className="text-center small">
           © {new Date().getFullYear()} RGM Development. All rights reserved.
         </div>
       </Container>

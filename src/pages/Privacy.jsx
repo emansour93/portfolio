@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 import { getPage } from "../api.js";
 
-export default function About() {
+export default function Privacy() {
   const [page, setPage] = useState(null);
 
   useEffect(() => {
-    getPage("about").then((res) => setPage(res.data));
+    getPage("privacy").then((res) => setPage(res.data));
   }, []);
 
   if (!page)
@@ -14,7 +14,6 @@ export default function About() {
         <div className="container py-5 text-center">Loading...</div>
       </main>
     );
-
   return (
     <main className="main-top-margin">
       <section className="about py-5">

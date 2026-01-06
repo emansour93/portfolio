@@ -15,6 +15,7 @@ import HeroManager from "./components/admin/HeroManager";
 import ServicesManager from "./components/admin/ServicesManager";
 import ProjectsManager from "./components/admin/ProjectsManager";
 import PagesManager from "./components/admin/PagesManager";
+import Privacy from "./pages/Privacy";
 
 export default function App() {
   return (
@@ -26,6 +27,7 @@ export default function App() {
           <Route path="/services" element={<ServicesPage />} />
           <Route path="/projects" element={<Projects />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/privacy" element={<Privacy />} />
         </Route>
         <Route element={<AdminLayout />}>
           {/* Auth */}
