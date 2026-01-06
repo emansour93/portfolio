@@ -129,7 +129,7 @@ export default function PagesManager() {
             required
           />
           <input
-            placeholder="Slug (unique)"
+            placeholder="Slug [about, privacy, terms]"
             value={form.slug}
             onChange={(e) => setForm({ ...form, slug: e.target.value })}
             required
