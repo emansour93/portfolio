@@ -5,6 +5,7 @@ import {
   FaInstagram,
   FaLinkedinIn,
   FaWhatsapp,
+  FaYoutube,
 } from "react-icons/fa";
 
 import logo from "../assets/logos/logo.png";
@@ -87,6 +88,23 @@ export default function Footer() {
                 aria-label="Instagram"
               >
                 <FaInstagram />
+              </a>
+
+              <a
+                href="https://www.linkedin.com/company/rgm-development-group/about/?viewAsMember=true"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="LinkedIn"
+              >
+                <FaLinkedinIn />
+              </a>
+              <a
+                href="https://www.youtube.com/@RGMDevelopmentGroupFlorida"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="YouTube"
+              >
+                <FaYoutube />
               </a>
             </div>
           </Col>

@@ -18,6 +18,7 @@ import PagesManager from "./components/admin/PagesManager";
 import Privacy from "./pages/Privacy";
 import DynamicSEO from "./components/DynamicSEO";
 import PageSEOEditor from "./components/admin/PageSEOEditor";
+import FreeEstimate from "./pages/FreeEstimate";
 
 export default function App() {
   return (
@@ -33,6 +34,16 @@ export default function App() {
               </>
             }
           />
+          <Route
+            path="/free-estimate"
+            element={
+              <>
+                <DynamicSEO slug="free-estimate" />
+                <FreeEstimate />
+              </>
+            }
+          />
+
           <Route
             path="/about"
             element={

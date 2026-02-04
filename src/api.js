@@ -19,5 +19,6 @@ export const getSEO = (slug) => api.get(`/seo/${slug}`);
 export const getAllSEO = () => api.get(`/seo`);
 export const updateSEO = (slug, data) => api.put(`/seo/${slug}`, data);
 export const deleteSEO = (slug) => api.delete(`/seo/${slug}`);
+export const sendFreeEstimate = (data) => api.post("/free-estimate", data);
 
 export default api;
