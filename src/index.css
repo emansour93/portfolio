@@ -348,7 +348,10 @@ footer .footer-socials {
   margin-bottom: 25px;
   font-size: 24px;
 }
-
+.bg-transparent1 {
+  --bs-bg-opacity: 1;
+  background-color: #2f6f7a8f !important;
+}
 .login-input {
   width: 100%;
   padding: 12px;

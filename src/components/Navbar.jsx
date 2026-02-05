@@ -17,7 +17,7 @@ export default function NavbarComponent() {
   const navbarClass = isHome
     ? scrolled
       ? "bg-blue shadow"
-      : "bg-transparent"
+      : "bg-transparent1"
     : "bg-blue shadow";
 
   return (
