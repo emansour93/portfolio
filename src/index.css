@@ -352,6 +352,10 @@ footer .footer-socials {
   --bs-bg-opacity: 1;
   background-color: #2f6f7a8f !important;
 }
+.navbar-toggler {
+  background-color: #2f6f7a;
+  color: black;
+}
 .login-input {
   width: 100%;
   padding: 12px;
