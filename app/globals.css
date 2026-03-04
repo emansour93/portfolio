@@ -1,5 +1,78 @@
 @import "tailwindcss";
+/* Sidebar */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 16rem; /* 64 */
+  background-color: #111827; /* gray-900 */
+  color: white;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease-in-out;
+  z-index: 50;
+}
 
+.sidebar a {
+  padding: 0.5rem;
+  margin-bottom: 0.5rem;
+  border-radius: 0.25rem;
+  display: block;
+  color: white;
+  text-decoration: none;
+}
+
+.sidebar a:hover {
+  background-color: #374151; /* gray-700 */
+}
+
+.logout-button {
+  margin-top: auto;
+  background-color: #ef4444; /* red-500 */
+  padding: 0.5rem;
+  border-radius: 0.25rem;
+  color: white;
+  cursor: pointer;
+}
+
+.logout-button:hover {
+  background-color: #dc2626; /* red-600 */
+}
+
+/* Mobile hamburger */
+.hamburger {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  padding: 0.5rem;
+  background-color: #111827;
+  color: white;
+  border-radius: 0.25rem;
+  z-index: 50;
+}
+
+/* Overlay for mobile */
+.overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+/* Main content */
+.main {
+  flex: 1;
+  padding: 2rem;
+  margin-left: 16rem; /* same as sidebar width */
+  background-color: #f3f4f6; /* gray-100 */
+}
+
+@media (max-width: 768px) {
+  .main {
+    margin-left: 0;
+  }
+}
 :root {
   --background: #ffffff;
   --foreground: #171717;
@@ -20,7 +93,46 @@
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: #ffffff;
+  color: #111111;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+}
+.hero-cms {
+  padding: 1.5rem;
+}
+
+.hero-cms h1 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+/* List container */
+.hero-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Sortable item */
+.hero-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.5rem;
+  background-color: #f3f4f6; /* light gray */
+  border-radius: 0.25rem;
+  cursor: grab;
+}
+
+.hero-item:active {
+  cursor: grabbing;
+}
+
+/* Hero image */
+.hero-item img {
+  width: 8rem; /* 128px */
+  height: 5rem; /* 80px */
+  object-fit: cover;
+  border-radius: 0.25rem;
 }

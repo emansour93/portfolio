@@ -1,0 +1,44 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        Int      @id @default(autoincrement())
+  name      String
+  email     String   @unique
+  password  String
+  createdAt DateTime @default(now())
+}
+
+model HeroImage {
+  id        Int      @id @default(autoincrement())
+  src       String   @unique
+  altText   String?
+  order     Int      @default(0) // controls slider order
+  createdAt DateTime @default(now())
+}
+
+model Collection {
+  id          Int               @id @default(autoincrement())
+  name        String
+  slug        String            @unique
+  description String?           @db.Text
+  hero        String
+  order       Int               @default(0)
+  createdAt   DateTime          @default(now())
+  images      CollectionImage[]
+}
+
+model CollectionImage {
+  id           Int        @id @default(autoincrement())
+  src          String
+  altText      String     @default("")
+  order        Int        @default(0)
+  collectionId Int
+  collection   Collection @relation(fields: [collectionId], references: [id], onDelete: Cascade)
+}
