@@ -9,6 +9,7 @@ type CollectionImage = { id: number; src: string; altText: string };
 type Collection = {
   id: number;
   name: string;
+  subtitle: string;
   slug: string;
   description: string;
   hero: string;
@@ -20,6 +21,7 @@ export default function CollectionPage() {
   const [collection, setCollection] = useState<Collection | null>(null);
   const [notFound, setNotFound] = useState(false);
   const [zoomedImage, setZoomedImage] = useState<string | null>(null);
+  const [activeIndex, setActiveIndex] = useState<number | null>(null);
 
   useEffect(() => {
     fetch("/api/collections")
@@ -36,7 +38,23 @@ export default function CollectionPage() {
   if (notFound)
     return <p className="text-center mt-20">Collection not found.</p>;
   if (!collection) return <p className="text-center mt-20">Loading…</p>;
+  const images = collection.images;
 
+  const close = () => setActiveIndex(null);
+
+  const next = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    setActiveIndex((prev) =>
+      prev === null ? null : (prev + 1) % images.length,
+    );
+  };
+
+  const prev = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    setActiveIndex((prev) =>
+      prev === null ? null : (prev - 1 + images.length) % images.length,
+    );
+  };
   return (
     <main className="relative w-full bg-white">
       <Nav />
@@ -54,23 +72,26 @@ export default function CollectionPage() {
           <h1 className="text-4xl md:text-6xl font-light text-white tracking-widest">
             {collection.name}
           </h1>
-          <p className="mt-4 text-white/90 max-w-xl">
-            {collection.description}
-          </p>
+          {collection?.subtitle && (
+            <h6 className="text-sm md:text-lg font-light  text-white uppercase">
+              {collection.subtitle}
+            </h6>
+          )}
         </div>
       </div>
 
       {/* Gallery */}
       <section className="px-6 md:px-24 py-16 space-y-12">
-        <h2 className="text-3xl font-light tracking-widest">
+        <h2 className="text-3xl mb-2 font-light tracking-widest">
           Explore the collection
         </h2>
+        <div dangerouslySetInnerHTML={{ __html: collection.description }} />
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {collection.images.map((img, idx) => (
             <div
               key={img.id}
               className="relative w-full h-64 cursor-pointer group overflow-hidden rounded-md"
-              onClick={() => setZoomedImage(img.src)}
+              onClick={() => setActiveIndex(idx)}
             >
               <img
                 src={img.src}
@@ -89,16 +110,38 @@ export default function CollectionPage() {
       <Footer />
 
       {/* Lightbox */}
-      {zoomedImage && (
+      {activeIndex !== null && (
         <div
-          className="fixed inset-0 z-50 bg-black/90 flex items-center justify-center p-6 cursor-zoom-out"
-          onClick={() => setZoomedImage(null)}
+          className="fixed inset-0 z-50 bg-black/95 flex items-center justify-center cursor-zoom-out"
+          onClick={close}
         >
+          {/* Image */}
           <img
-            src={zoomedImage}
+            src={images[activeIndex].src}
             alt="Zoomed"
-            className="object-contain max-h-full max-w-full"
+            className="max-h-full max-w-full object-contain"
           />
+
+          {/* Prev Button */}
+          <button
+            onClick={prev}
+            className="absolute left-6 text-white text-3xl px-4 py-2"
+          >
+            ‹
+          </button>
+
+          {/* Next Button */}
+          <button
+            onClick={next}
+            className="absolute right-6 text-white text-3xl px-4 py-2"
+          >
+            ›
+          </button>
+
+          {/* Close hint (optional) */}
+          <div className="absolute bottom-6 text-white/60 text-sm">
+            Click anywhere to close
+          </div>
         </div>
       )}
     </main>

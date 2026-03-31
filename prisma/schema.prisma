@@ -26,6 +26,7 @@ model HeroImage {
 model Collection {
   id          Int               @id @default(autoincrement())
   name        String
+  subtitle    String?
   slug        String            @unique
   description String?           @db.Text
   hero        String

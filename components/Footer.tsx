@@ -12,7 +12,7 @@ export default function Footer() {
       className="w-full bg-black text-white text-center py-6 px-4"
     >
       <p className="text-sm tracking-widest">
-        © JPK Jean Pierre Khoury. Developed by Elias Gerg Mansour.
+        © JPK Jean Pierre Khoury. Developed by Elias G Mansour.
       </p>
     </motion.footer>
   );

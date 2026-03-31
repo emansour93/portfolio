@@ -18,7 +18,8 @@ export async function GET() {
 // POST new collection
 export async function POST(req: Request) {
   try {
-    const { name, slug, description, hero, order } = await req.json();
+    const { name, slug, description, subtitle, hero, order } = await req.json();
+
     if (!name || !slug || !hero)
       return NextResponse.json(
         { error: "name, slug and hero required" },
@@ -30,10 +31,12 @@ export async function POST(req: Request) {
         name,
         slug,
         description: description || "",
+        subtitle: subtitle || "", // ✅ added
         hero,
         order: order || 0,
       },
     });
+
     return NextResponse.json(collection);
   } catch (err: any) {
     if (err.code === "P2002")
@@ -41,6 +44,7 @@ export async function POST(req: Request) {
         { error: "Slug already exists" },
         { status: 400 },
       );
+
     return NextResponse.json({ error: "Failed to create" }, { status: 500 });
   }
 }
@@ -48,18 +52,26 @@ export async function POST(req: Request) {
 // PATCH collection or reorder
 export async function PATCH(req: Request) {
   try {
-    const { id, name, slug, description, hero, order } = await req.json();
+    const { id, name, slug, description, subtitle, hero, order } =
+      await req.json();
+
     if (typeof id !== "number")
       return NextResponse.json({ error: "Invalid id" }, { status: 400 });
 
     const data: any = {};
+
     if (name !== undefined) data.name = name;
     if (slug !== undefined) data.slug = slug;
     if (description !== undefined) data.description = description;
+    if (subtitle !== undefined) data.subtitle = subtitle || null;
     if (hero !== undefined) data.hero = hero;
     if (typeof order === "number") data.order = order;
 
-    const updated = await prisma.collection.update({ where: { id }, data });
+    const updated = await prisma.collection.update({
+      where: { id },
+      data,
+    });
+
     return NextResponse.json(updated);
   } catch (err) {
     return NextResponse.json({ error: "Failed to update" }, { status: 500 });

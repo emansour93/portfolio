@@ -1,6 +1,7 @@
 // app/about/page.tsx
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
+import Image from "next/image";
 
 export default function AboutPage() {
   return (
@@ -47,62 +48,40 @@ export default function AboutPage() {
 
       <Nav />
 
-      {/* ── HERO ───────────────────────────────────────────────── */}
-      <section className="relative w-full h-screen flex items-end pb-16 md:pb-24 overflow-hidden">
-        {/* Background image */}
-        <div className="hero-img-fade absolute inset-0">
-          <img
-            src="/images/about-hero.jpg"
-            alt="Jean Pierre Khoury Atelier"
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-black/10" />
-        </div>
-
-        {/* Decorative vertical text */}
-        <div
-          className="font-body absolute right-8 top-1/2 -translate-y-1/2 text-white/30 tracking-[0.4em] text-xs hidden md:block"
-          style={{ writingMode: "vertical-rl" }}
-        >
-          MAISON JEAN PIERRE KHOURY
-        </div>
-
-        {/* Hero text */}
-        <div className="relative z-10 px-8 md:px-24 w-full">
-          <p className="font-body reveal reveal-1 text-white/60 tracking-[0.3em] text-xs mb-4 uppercase">
-            Est. Lebanon
-          </p>
-          <h1
-            className="font-display reveal reveal-2 text-white font-light leading-none"
-            style={{ fontSize: "clamp(3.5rem, 10vw, 9rem)" }}
-          >
-            The Art of
-            <br />
-            <em>Couture</em>
-          </h1>
-          <div className="line-draw h-px bg-white/40 mt-8 mb-0 max-w-xs" />
-        </div>
-      </section>
-
       {/* ── INTRO ──────────────────────────────────────────────── */}
       <section className="px-8 md:px-24 py-24 md:py-36 grid md:grid-cols-2 gap-16 md:gap-32 items-center">
         <div>
-          <p className="font-body reveal reveal-1 text-[#b8a98a] tracking-[0.25em] text-xs uppercase mb-6">
-            Our Philosophy
-          </p>
           <h2
             className="font-display reveal reveal-2 font-light text-[#1a1a1a] leading-tight mb-8"
             style={{ fontSize: "clamp(2rem, 4vw, 3.5rem)" }}
           >
-            Where fabric
-            <br />
-            <em>becomes poetry</em>
+            About Jean Pierre Khoury
           </h2>
           <p className="font-body reveal reveal-3 text-[#5a5a5a] text-sm leading-loose font-light max-w-md">
-            Every garment that leaves our atelier is a testament to the belief
-            that clothing is not merely worn — it is felt. We work with the
-            finest materials, guided by an obsession with detail that borders on
-            the meditative.
+            Jean Pierre Khoury is a Lebanese fashion designer whose work
+            reflects a deep commitment to craftsmanship, innovation, and bold
+            self-expression. From an early age, he was drawn to the
+            transformative power of fashion—its ability to shape identity, evoke
+            emotion, and command presence. This instinct evolved into a clear
+            creative vision: to design pieces that are not only visually
+            striking, but that empower the individual wearing them. Rooted in
+            the richness of Lebanese couture and guided by a global perspective,
+            Jean Pierre Khoury has developed a distinctive aesthetic defined by
+            sculptural silhouettes, intricate detailing, and a fearless approach
+            to glamour. Each design is approached as a statement—balancing
+            precision with artistry, and tradition with modernity. His work
+            reflects an understanding of form, movement, and the relationship
+            between garment and body, resulting in creations that feel both
+            powerful and refined. As the brand continues to grow
+            internationally, Jean Pierre Khoury has attracted a diverse
+            clientele of artists, performers, and personalities who seek designs
+            that stand out with intention. His creations have been worn on some
+            of the world’s most visible stages, reinforcing his position as part
+            of a new generation of designers shaping the future of couture.
+            Today, Jean Pierre Khoury represents more than a label—he represents
+            a vision of confidence, individuality, and contemporary luxury. With
+            each collection, he continues to push boundaries, creating pieces
+            designed not only to be seen, but to leave a lasting impression.
           </p>
         </div>
 
@@ -110,20 +89,11 @@ export default function AboutPage() {
         <div className="reveal reveal-4 relative">
           <div className="relative h-[500px] md:h-[600px] overflow-hidden">
             <img
-              src="/images/about-hero.jpg"
+              src="/images/logo/JPKhoury.jpeg"
               alt="Atelier detail"
               className="w-full h-full object-cover"
             />
           </div>
-          {/* Offset decorative border */}
-          <div
-            className="absolute border border-[#b8a98a]/40 pointer-events-none"
-            style={{
-              inset: "-16px -16px auto auto",
-              width: "70%",
-              height: "70%",
-            }}
-          />
         </div>
       </section>
 
@@ -155,90 +125,20 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* ── STORY ──────────────────────────────────────────────── */}
-      <section className="px-8 md:px-24 py-24 md:py-36">
-        <div className="max-w-6xl mx-auto">
-          <p className="font-body text-[#b8a98a] tracking-[0.25em] text-xs uppercase mb-6">
-            Our Story
-          </p>
-
-          {/* Large editorial layout */}
-          <div className="grid md:grid-cols-12 gap-8 md:gap-16">
-            <div className="md:col-span-5">
-              <h2
-                className="font-display font-light text-[#1a1a1a] leading-tight"
-                style={{ fontSize: "clamp(2rem, 3.5vw, 3rem)" }}
-              >
-                Born from a
-                <br />
-                love of craft
-              </h2>
-            </div>
-            <div className="md:col-span-7 flex flex-col gap-6 justify-center">
-              <p className="font-body text-[#5a5a5a] text-sm leading-loose font-light">
-                The house of Jean Pierre Khoury was founded on a singular
-                vision: to create garments that transcend trend, season, and
-                time. Each piece is conceived in our Beirut atelier, where
-                tradition meets modernity in every hand-placed stitch.
-              </p>
-              <p className="font-body text-[#5a5a5a] text-sm leading-loose font-light">
-                Our collections draw from the rich cultural tapestry of the
-                Levant — its colors, textures, and ancient sense of beauty —
-                reinterpreted for the contemporary woman who moves through the
-                world with intention and grace.
-              </p>
-            </div>
-          </div>
-
-          {/* Three values */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-[#e8e4de] mt-20">
-            {[
-              {
-                number: "01",
-                title: "Craftsmanship",
-                body: "Every seam, every bead, every fold is placed with purpose. Our artisans bring decades of mastery to each creation.",
-              },
-              {
-                number: "02",
-                title: "Intention",
-                body: "We design for women who know who they are. Our garments are a dialogue, not a statement imposed from outside.",
-              },
-              {
-                number: "03",
-                title: "Timelessness",
-                body: "We resist the ephemeral. A JPK piece is not for a season — it is for a life, meant to be cherished and passed on.",
-              },
-            ].map((v) => (
-              <div key={v.number} className="bg-[#faf9f7] p-10 md:p-12">
-                <p className="font-body text-[#b8a98a] text-xs tracking-[0.3em] mb-6">
-                  {v.number}
-                </p>
-                <h3 className="font-display text-[#1a1a1a] text-2xl font-light mb-4">
-                  {v.title}
-                </h3>
-                <p className="font-body text-[#7a7a7a] text-sm leading-loose font-light">
-                  {v.body}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* ── CLOSING IMAGE ──────────────────────────────────────── */}
-      <section className="relative h-[50vh] md:h-[70vh] overflow-hidden">
+      <section className="relative bg-black/40 h-[50vh] md:h-[70vh] overflow-hidden">
         <img
-          src="/images/about-hero.jpg"
+          src="/images/logo/logo.png"
           alt="Jean Pierre Khoury"
-          className="w-full h-full object-cover"
+          style={{ margin: "auto" }}
+          className="w-[80%] h-full object-contain"
         />
-        <div className="absolute inset-0 bg-black/40" />
         <div className="absolute inset-0 flex items-center justify-center">
           <p
             className="font-display font-light text-white text-center char-hover cursor-default tracking-[0.2em]"
             style={{ fontSize: "clamp(1.5rem, 4vw, 3.5rem)" }}
           >
-            Maison Jean Pierre Khoury
+            <div className="relative w-148 h-48"></div>
           </p>
         </div>
       </section>
