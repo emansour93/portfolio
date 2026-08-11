@@ -79,6 +79,10 @@ export default function NavbarComponent() {
             >
               Contact Us
             </Nav.Link>
+            <Nav.Link>
+              License:
+              <br /> CGC1541558
+            </Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>
